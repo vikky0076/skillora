@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skillora - Code Better. Speak Better. Grow Better.</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Skillora is an online learning platform designed to help students master programming languages, improve English communication, practice coding, and build projects.">
+    <meta name="keywords" content="coding, programming, english communication, learn python, learn javascript, online editor, coding challenges, english quiz, skillora">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Skillora - Master Programming & Speak English Confidently">
+    <meta property="og:description" content="Learn coding and communication skills together. Track progress, practice coding in our live playground, and generate certificates.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+  <script type="module" crossorigin src="/assets/index-B8lo4JNE.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CWYcIGib.css">
+</head>
+<body>
+
+    <!-- Intro Scroll Overlay -->
+    <div id="intro-overlay" class="intro-overlay">
+        <!-- Step 1: Branding & Quote -->
+        <div id="intro-step-1" class="intro-step active">
+            <div class="intro-content">
+                <div class="intro-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h1 class="intro-title-text">Skillora</h1>
+                <p class="intro-sub">Educational Platform</p>
+                
+                <div class="intro-quote">
+                    <p class="quote-text">"The beautiful thing about learning is that no one can take it away from you."</p>
+                    <span class="quote-author">— B.B. King</span>
+                </div>
+            </div>
+            
+            <div class="intro-scroll-hint">
+                <i class="fa-solid fa-circle-chevron-down bounce-anim"></i>
+                <span>Scroll Down to continue</span>
+            </div>
+        </div>
+
+        <!-- Step 2: Developers Credit -->
+        <div id="intro-step-2" class="intro-step">
+            <div class="intro-content">
+                <h2 class="dev-credits-title">This website developed by:</h2>
+                <div class="dev-names">
+                    <span class="dev-name">VIGNESH B</span>
+                    <span class="dev-name">MAGENDRAN S</span>
+                    <span class="dev-name">RAJESH S</span>
+                </div>
+            </div>
+            
+            <div class="intro-scroll-hint">
+                <i class="fa-solid fa-circle-chevron-down bounce-anim"></i>
+                <span>Scroll Down to enter homepage</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress-bar" class="scroll-progress"></div>
+
+    <!-- Glow Background Blobs -->
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-cyan"></div>
+
+    <!-- Navigation Bar -->
+    <header id="header-nav">
+        <nav class="navbar container">
+            <a href="#" class="brand-logo" id="brand-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <span>Skillora</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" class="nav-link active" data-section="hero">Home</a></li>
+                <li><a href="#programming" class="nav-link" data-section="programming">Programming</a></li>
+                <li><a href="#english" class="nav-link" data-section="english">English</a></li>
+                <li><a href="#playground" class="nav-link" data-section="playground">Playground</a></li>
+                <li><a href="#challenges" class="nav-link" data-section="challenges">Practice</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a></li>
+                <li><a href="#community" class="nav-link" data-section="community">Community</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Search Toggle -->
+                <button id="search-nav-toggle" class="icon-btn" aria-label="Search site">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- Auth Buttons -->
+                <button class="btn btn-outline show-login-modal">Login</button>
+                <button class="btn btn-primary show-signup-modal">Sign Up</button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="icon-btn mobile-toggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Global Inline Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-box">
+            <input type="text" id="global-search-input" placeholder="Search courses, grammar, shortcuts...">
+            <button id="close-search-btn" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section section-padding">
+            <div class="container hero-grid">
+                <div class="hero-content reveal-on-scroll">
+                    <div class="hero-tagline">
+                        <i class="fa-solid fa-sparkles"></i> Code Better. Speak Better. Grow Better.
+                    </div>
+                    <h1 class="hero-title">
+                        <span id="typed-text">Master Programming</span><br>
+                        <span class="gradient-text">&amp; Speak Confidently</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Learn coding and communication skills together. Build your future with Skillora through interactive playground exercises, grammar practice, and standard projects.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#programming" class="btn btn-primary btn-lg">
+                            <span>Start Learning</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-outline btn-lg">
+                            <span>Explore Projects</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal-on-scroll delay-100">
+                    <div class="glass-hero-card">
+                        <div class="card-header-bar">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="card-tab-title">skillora_lesson.py</span>
+                        </div>
+                        <div class="card-code-body">
+                            <pre><code><span class="keyword">def</span> <span class="func">learn_and_grow</span>(student):
+    skills = []
+    skills.append(<span class="str">"Coding: JavaScript &amp; Python"</span>)
+    skills.append(<span class="str">"English: Interview Prep"</span>)
+    
+    <span class="keyword">for</span> skill <span class="keyword">in</span> skills:
+        student.practice(skill)
+        student.confidence += <span class="num">10</span>
+        
+    <span class="keyword">return</span> student.ready_for_career()</code></pre>
+                        </div>
+                    </div>
+                    <!-- Floating Tech Badges -->
+                    <div class="floating-badge badge-1 float-anim">
+                        <i class="fa-brands fa-python text-yellow"></i> <span>Python</span>
+                    </div>
+                    <div class="floating-badge badge-2 float-anim-reverse">
+                        <i class="fa-brands fa-js text-yellow"></i> <span>JS</span>
+                    </div>
+                    <div class="floating-badge badge-3 float-anim">
+                        <i class="fa-solid fa-comments text-purple"></i> <span>English</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats-counter" class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-card glass-card reveal-on-scroll">
+                    <h3 class="stat-number" data-target="15000">0</h3>
+                    <p class="stat-label">Active Learners</p>
+                </div>
+                <div class="stat-card glass-card reveal-on-scroll delay-100">
+                    <h3 class="stat-number" data-target="100">0</h3>
+                    <p class="stat-label">Lessons &amp; Guides</p>
+                </div>
+                <div class="stat-card glass-card reveal-on-scroll delay-200">
+                    <h3 class="stat-number" data-target="50">0</h3>
+                    <p class="stat-label">Coding Challenges</p>
+                </div>
+                <div class="stat-card glass-card reveal-on-scroll delay-300">
+                    <h3 class="stat-number" data-target="98" data-suffix="%">0</h3>
+                    <p class="stat-label">Satisfaction Rate</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programming Learning Section -->
+        <section id="programming" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <h2 class="section-title">Programming Learning</h2>
+                    <p class="section-subtitle">W3Schools simplicity with premium interactive components. Click a card to read lessons or practice.</p>
+                </div>
+
+                <!-- Search & Filters -->
+                <div class="filter-controls reveal-on-scroll">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="course-search" placeholder="Search programming courses...">
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="web">Web Dev</button>
+                        <button class="filter-btn" data-filter="backend">Backend &amp; Systems</button>
+                        <button class="filter-btn" data-filter="frontend">Frontend Frameworks</button>
+                    </div>
+                </div>
+
+                <!-- Course Cards Grid -->
+                <div class="courses-grid reveal-on-scroll" id="courses-container">
+                    <!-- HTML Card -->
+                    <div class="course-card glass-card" data-category="web" data-course="html">
+                        <div class="course-header">
+                            <div class="course-icon html-bg"><i class="fa-brands fa-html5"></i></div>
+                            <div class="course-badge">Web</div>
+                        </div>
+                        <h3 class="course-title">HTML5</h3>
+                        <p class="course-desc">Learn the foundation of the web, structure elements, semantic tags, and forms.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-html" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-html">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="html">Start Learning</button>
+                    </div>
+
+                    <!-- CSS Card -->
+                    <div class="course-card glass-card" data-category="web" data-course="css">
+                        <div class="course-header">
+                            <div class="course-icon css-bg"><i class="fa-brands fa-css3-alt"></i></div>
+                            <div class="course-badge">Web</div>
+                        </div>
+                        <h3 class="course-title">CSS3</h3>
+                        <p class="course-desc">Master layout systems, Flexbox, CSS Grid, custom properties, and sleek keyframe animations.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-css" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-css">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="css">Start Learning</button>
+                    </div>
+
+                    <!-- JS Card -->
+                    <div class="course-card glass-card" data-category="web" data-course="javascript">
+                        <div class="course-header">
+                            <div class="course-icon js-bg"><i class="fa-brands fa-js"></i></div>
+                            <div class="course-badge">Web</div>
+                        </div>
+                        <h3 class="course-title">JavaScript</h3>
+                        <p class="course-desc">Understand ES6+ features, closures, promises, DOM manipulation, and asynchronous patterns.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-javascript" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-javascript">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="javascript">Start Learning</button>
+                    </div>
+
+                    <!-- Python Card -->
+                    <div class="course-card glass-card" data-category="backend" data-course="python">
+                        <div class="course-header">
+                            <div class="course-icon python-bg"><i class="fa-brands fa-python"></i></div>
+                            <div class="course-badge">Backend</div>
+                        </div>
+                        <h3 class="course-title">Python</h3>
+                        <p class="course-desc">Explore syntax, basic scripting, list comprehensions, data structures, and classes.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-python" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-python">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="python">Start Learning</button>
+                    </div>
+
+                    <!-- Java Card -->
+                    <div class="course-card glass-card" data-category="backend" data-course="java">
+                        <div class="course-header">
+                            <div class="course-icon java-bg"><i class="fa-brands fa-java"></i></div>
+                            <div class="course-badge">Backend</div>
+                        </div>
+                        <h3 class="course-title">Java</h3>
+                        <p class="course-desc">Understand Object-Oriented programming, inheritance, interfaces, and Java streams.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-java" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-java">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="java">Start Learning</button>
+                    </div>
+
+                    <!-- SQL Card -->
+                    <div class="course-card glass-card" data-category="backend" data-course="sql">
+                        <div class="course-header">
+                            <div class="course-icon sql-bg"><i class="fa-solid fa-database"></i></div>
+                            <div class="course-badge">Database</div>
+                        </div>
+                        <h3 class="course-title">SQL</h3>
+                        <p class="course-desc">Query relational databases, master joins, aggregates, indexes, and database schemas.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-sql" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-sql">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="sql">Start Learning</button>
+                    </div>
+
+                    <!-- React Card -->
+                    <div class="course-card glass-card" data-category="frontend" data-course="react">
+                        <div class="course-header">
+                            <div class="course-icon react-bg"><i class="fa-brands fa-react"></i></div>
+                            <div class="course-badge">Frontend</div>
+                        </div>
+                        <h3 class="course-title">React</h3>
+                        <p class="course-desc">Learn state, props, hooks, lifecycle, custom hooks, and functional components.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-react" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-react">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="react">Start Learning</button>
+                    </div>
+
+                    <!-- Node.js Card -->
+                    <div class="course-card glass-card" data-category="backend" data-course="node">
+                        <div class="course-header">
+                            <div class="course-icon node-bg"><i class="fa-brands fa-node-js"></i></div>
+                            <div class="course-badge">Backend</div>
+                        </div>
+                        <h3 class="course-title">Node.js</h3>
+                        <p class="course-desc">Build server-side apps using asynchronous events, file system systems, and Express APIs.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-node" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-node">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="node">Start Learning</button>
+                    </div>
+
+                    <!-- C Card -->
+                    <div class="course-card glass-card" data-category="backend" data-course="c">
+                        <div class="course-header">
+                            <div class="course-icon java-bg" style="background: linear-gradient(135deg, #555, #777);"><i class="fa-solid fa-terminal"></i></div>
+                            <div class="course-badge">Systems</div>
+                        </div>
+                        <h3 class="course-title">C Language</h3>
+                        <p class="course-desc">Master system-level coding, pointers, memory allocation, structures, and compiling pipelines.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-c" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-c">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="c">Start Learning</button>
+                    </div>
+
+                    <!-- C++ Card -->
+                    <div class="course-card glass-card" data-category="backend" data-course="cpp">
+                        <div class="course-header">
+                            <div class="course-icon java-bg" style="background: linear-gradient(135deg, #004482, #00599C);"><i class="fa-solid fa-microchip"></i></div>
+                            <div class="course-badge">Systems</div>
+                        </div>
+                        <h3 class="course-title">C++ OOP</h3>
+                        <p class="course-desc">Explore object-oriented patterns, classes, templates, STL containers, and systems development.</p>
+                        <div class="course-progress-container">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-cpp" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-text" id="text-cpp">0% Done</span>
+                        </div>
+                        <button class="btn btn-full btn-outline start-course-btn" data-course="cpp">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- English Communication Section -->
+        <section id="english" class="section-padding section-alt-bg">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <h2 class="section-title">English Communication</h2>
+                    <p class="section-subtitle">Boost your fluency, speak at job interviews, and practice grammar interactively.</p>
+                </div>
+
+                <div class="english-layout">
+                    <!-- Categories and Grammar Cards -->
+                    <div class="english-categories reveal-on-scroll">
+                        <h3 class="content-title">Interactive Study Modules</h3>
+                        <div class="english-grid">
+                            <div class="english-card glass-card" data-module="grammar">
+                                <div class="english-card-icon"><i class="fa-solid fa-book-open"></i></div>
+                                <h4>Grammar &amp; Tenses</h4>
+                                <p>Learn active/passive voice, article checks, and conditionals.</p>
+                                <button class="btn btn-sm btn-outline open-english-module" data-module="grammar">Practice</button>
+                            </div>
+                            <div class="english-card glass-card" data-module="conversations">
+                                <div class="english-card-icon"><i class="fa-solid fa-comments"></i></div>
+                                <h4>Daily Conversations</h4>
+                                <p>Phrasal verbs, idioms, and expressions for day-to-day talks.</p>
+                                <button class="btn btn-sm btn-outline open-english-module" data-module="conversations">Learn Phrases</button>
+                            </div>
+                            <div class="english-card glass-card" data-module="interviews">
+                                <div class="english-card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                <h4>Job Interviews</h4>
+                                <p>Prepare structures to answer common questions and pitch projects.</p>
+                                <button class="btn btn-sm btn-outline open-english-module" data-module="interviews">Review Answers</button>
+                            </div>
+                            <div class="english-card glass-card" data-module="public">
+                                <div class="english-card-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                                <h4>Public Speaking</h4>
+                                <p>Tackle presentations, structures, and practice voice modulation.</p>
+                                <button class="btn btn-sm btn-outline open-english-module" data-module="public">Master Tips</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Word of the Day & Audio Widget -->
+                    <div class="english-widgets reveal-on-scroll delay-100">
+                        <!-- Word of the Day -->
+                        <div class="glass-card widget-card">
+                            <span class="widget-badge">Word of the Day</span>
+                            <div class="word-flex">
+                                <h3 id="word-title">Eloquence</h3>
+                                <button id="word-audio-btn" class="icon-btn-glow" aria-label="Listen to word">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <span class="word-pronunciation">/ˈel.ə.kwəns/</span>
+                            <p class="word-def"><strong>Definition:</strong> Fluent, persuasive, and elegant speaking or writing.</p>
+                            <p class="word-example"><em>"The speaker demonstrated great eloquence when delivering the keynote presentation on technology trends."</em></p>
+                        </div>
+
+                        <!-- Common Mistakes widget -->
+                        <div class="glass-card widget-card mt-4">
+                            <span class="widget-badge warning-badge">Common Mistakes</span>
+                            <div class="mistake-item">
+                                <span class="wrong-label"><i class="fa-solid fa-circle-xmark"></i> I am agree with you.</span>
+                                <span class="correct-label"><i class="fa-solid fa-circle-check"></i> I agree with you.</span>
+                            </div>
+                            <div class="mistake-item">
+                                <span class="wrong-label"><i class="fa-solid fa-circle-xmark"></i> She explain me the code.</span>
+                                <span class="correct-label"><i class="fa-solid fa-circle-check"></i> She explained the code to me.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Code Editor -->
+        <section id="playground" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <h2 class="section-title">Interactive Code Playground</h2>
+                    <p class="section-subtitle">Write, test, and render your code directly in the browser with our live preview.</p>
+                </div>
+
+                <div class="editor-container glass-card reveal-on-scroll">
+                    <div class="editor-header">
+                        <div class="editor-tabs">
+                            <button class="editor-tab active" data-tab="html"><i class="fa-brands fa-html5 text-orange"></i> HTML</button>
+                            <button class="editor-tab" data-tab="css"><i class="fa-brands fa-css3-alt text-blue"></i> CSS</button>
+                            <button class="editor-tab" data-tab="js"><i class="fa-brands fa-js text-yellow"></i> JavaScript</button>
+                        </div>
+                        <div class="editor-actions">
+                            <button id="clear-editor-btn" class="btn btn-outline btn-sm">Clear</button>
+                            <button id="run-code-btn" class="btn btn-primary btn-sm"><i class="fa-solid fa-play"></i> Run Code</button>
+                        </div>
+                    </div>
+
+                    <div class="editor-workspaces">
+                        <!-- HTML input -->
+                        <div class="editor-pane active" id="pane-html">
+                            <textarea id="code-html" class="code-textarea" spellcheck="false" aria-label="HTML Code"><!-- Write your HTML here -->
+<div class="card">
+    <h2>Hello, Skillora!</h2>
+    <p>This is a live preview output.</p>
+    <button onclick="toggleColor()">Change Color</button>
+</div></textarea>
+                        </div>
+
+                        <!-- CSS input -->
+                        <div class="editor-pane" id="pane-css">
+                            <textarea id="code-css" class="code-textarea" spellcheck="false" aria-label="CSS Code">/* Write your CSS here */
+body {
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1b4b, #3b0764);
+    color: white;
+    height: 100vh;
+    margin: 0;
+}
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}</textarea>
+                        </div>
+
+                        <!-- JS input -->
+                        <div class="editor-pane" id="pane-js">
+                            <textarea id="code-js" class="code-textarea" spellcheck="false" aria-label="JavaScript Code">// Write your JavaScript here
+function toggleColor() {
+    const card = document.querySelector('.card');
+    const colors = ['rgba(0, 212, 255, 0.2)', 'rgba(124, 58, 237, 0.2)', 'rgba(16, 185, 129, 0.2)'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    card.style.backgroundColor = randomColor;
+}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="editor-preview-panel">
+                        <div class="preview-header">
+                            <span><i class="fa-solid fa-desktop"></i> Live Preview</span>
+                        </div>
+                        <iframe id="editor-iframe" class="preview-iframe" title="Live Preview Output" sandbox="allow-scripts"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice & Challenges Section -->
+        <section id="challenges" class="section-padding section-alt-bg">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <h2 class="section-title">Practice Challenges</h2>
+                    <p class="section-subtitle">Test your coding skills and English communication logic with automated quizzes.</p>
+                </div>
+
+                <div class="challenges-wrapper reveal-on-scroll">
+                    <!-- Mode Selector Tabs -->
+                    <div class="challenges-tabs">
+                        <button class="challenge-tab active" data-target="code-challenges">Coding Challenges</button>
+                        <button class="challenge-tab" data-target="english-challenges">English Quizzes</button>
+                    </div>
+
+                    <!-- Coding Challenges container -->
+                    <div id="code-challenges" class="challenge-pane active">
+                        <div class="challenges-grid">
+                            <div class="challenge-card glass-card">
+                                <span class="difficulty easy">Beginner</span>
+                                <h4>Reverse a String</h4>
+                                <p>Write a JS function that takes a string and returns it backwards.</p>
+                                <button class="btn btn-sm btn-primary launch-challenge-btn" data-challenge="rev-string">Solve Challenge</button>
+                            </div>
+                            <div class="challenge-card glass-card">
+                                <span class="difficulty medium">Intermediate</span>
+                                <h4>Find Duplicate Items</h4>
+                                <p>Return an array containing only the non-unique values from a list.</p>
+                                <button class="btn btn-sm btn-primary launch-challenge-btn" data-challenge="find-dups">Solve Challenge</button>
+                            </div>
+                            <div class="challenge-card glass-card">
+                                <span class="difficulty hard">Advanced</span>
+                                <h4>API Retry Mechanism</h4>
+                                <p>Construct a function that retries a promise-based request N times.</p>
+                                <button class="btn btn-sm btn-primary launch-challenge-btn" data-challenge="api-retry">Solve Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- English Quizzes container -->
+                    <div id="english-challenges" class="challenge-pane">
+                        <div class="challenges-grid">
+                            <div class="challenge-card glass-card">
+                                <span class="difficulty easy">Grammar Quiz</span>
+                                <h4>Tenses &amp; Verb Forms</h4>
+                                <p>Check your understanding of present perfect, past, and conditional clauses.</p>
+                                <button class="btn btn-sm btn-primary start-quiz-btn" data-quiz="grammar">Start Quiz</button>
+                            </div>
+                            <div class="challenge-card glass-card">
+                                <span class="difficulty medium">Vocabulary Quiz</span>
+                                <h4>Synonyms &amp; Idioms</h4>
+                                <p>Select appropriate vocabularies to complete expressions and sentences.</p>
+                                <button class="btn btn-sm btn-primary start-quiz-btn" data-quiz="vocabulary">Start Quiz</button>
+                            </div>
+                            <div class="challenge-card glass-card">
+                                <span class="difficulty hard">Job Interview Speech</span>
+                                <h4>Professional Speaking</h4>
+                                <p>Assess grammar models suited for answering key behavioral interviews.</p>
+                                <button class="btn btn-sm btn-primary start-quiz-btn" data-quiz="interview">Start Quiz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project-Based Learning Section -->
+        <section id="projects" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <h2 class="section-title">Project-Based Learning</h2>
+                    <p class="section-subtitle">The best way to learn is by doing. Build fully-featured items from scratch.</p>
+                </div>
+
+                <!-- Projects Filter tabs -->
+                <div class="project-filters reveal-on-scroll">
+                    <button class="proj-filter-btn active" data-level="all">All Levels</button>
+                    <button class="proj-filter-btn" data-level="beginner">Beginner</button>
+                    <button class="proj-filter-btn" data-level="intermediate">Intermediate</button>
+                    <button class="proj-filter-btn" data-level="advanced">Advanced</button>
+                </div>
+
+                <div class="projects-grid reveal-on-scroll">
+                    <!-- Project 1: Calculator -->
+                    <div class="project-card glass-card" data-level="beginner">
+                        <div class="project-img-placeholder beginner-p">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge beg">Beginner</span>
+                            <h3>Sleek Glass Calculator</h3>
+                            <p>Build an interactive mathematical tool with a custom dark theme and memory variables.</p>
+                            <div class="project-tech"><span>HTML</span> <span>CSS Grid</span> <span>JS Math</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="calculator">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Weather App -->
+                    <div class="project-card glass-card" data-level="intermediate">
+                        <div class="project-img-placeholder intermediate-p">
+                            <i class="fa-solid fa-cloud-sun-rain"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge int">Intermediate</span>
+                            <h3>Geo-Weather Forecast</h3>
+                            <p>Connect with public APIs to display live temperature and wind speed stats by city name.</p>
+                            <div class="project-tech"><span>JSON API</span> <span>Async Await</span> <span>Geolocation</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="weather">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Dashboard App -->
+                    <div class="project-card glass-card" data-level="advanced">
+                        <div class="project-img-placeholder advanced-p">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge adv">Advanced</span>
+                            <h3>Interactive E-Commerce Dashboard</h3>
+                            <p>Create a full-scale charting dashboard monitoring revenue metrics, customer orders, and catalogs.</p>
+                            <div class="project-tech"><span>SVG Charts</span> <span>Local Storage</span> <span>Drag &amp; Drop</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="dashboard">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: To-Do App -->
+                    <div class="project-card glass-card" data-level="beginner">
+                        <div class="project-img-placeholder beginner-p">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge beg">Beginner</span>
+                            <h3>Smart To-Do Application</h3>
+                            <p>Design a task organizer features list tracking completed statuses with persistent JSON saves.</p>
+                            <div class="project-tech"><span>HTML5</span> <span>CSS Flexbox</span> <span>Local Storage</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="todo">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Landing Page -->
+                    <div class="project-card glass-card" data-level="beginner">
+                        <div class="project-img-placeholder beginner-p">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge beg">Beginner</span>
+                            <h3>SaaS Landing Page</h3>
+                            <p>Assemble a fully responsive landing page highlighting premium product features with transitions.</p>
+                            <div class="project-tech"><span>Semantic HTML</span> <span>CSS Grid</span> <span>Transitions</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="landing">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Quiz App -->
+                    <div class="project-card glass-card" data-level="intermediate">
+                        <div class="project-img-placeholder intermediate-p">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge int">Intermediate</span>
+                            <h3>Interactive Quiz App</h3>
+                            <p>Create a dynamic browser-based quiz widget counting scores and loading questions from JSON datasets.</p>
+                            <div class="project-tech"><span>Dynamic DOM</span> <span>JS Arrays</span> <span>Quiz Logic</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="quiz">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: Personal Portfolio -->
+                    <div class="project-card glass-card" data-level="intermediate">
+                        <div class="project-img-placeholder intermediate-p">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge int">Intermediate</span>
+                            <h3>Developer Portfolio</h3>
+                            <p>Build a stunning responsive personal resume website featuring smooth typing effects and contact portals.</p>
+                            <div class="project-tech"><span>CSS Grid</span> <span>Theme Toggle</span> <span>Form Validation</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="portfolio">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: Chat App -->
+                    <div class="project-card glass-card" data-level="advanced">
+                        <div class="project-img-placeholder advanced-p">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge adv">Advanced</span>
+                            <h3>Real-time Chat Portal</h3>
+                            <p>Model an advanced chat screen with active bubbles, typing animations, and mocked socket connections.</p>
+                            <div class="project-tech"><span>Flexbox layout</span> <span>Local State</span> <span>WebSockets</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="chat">View Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 9: AI Assistant -->
+                    <div class="project-card glass-card" data-level="advanced">
+                        <div class="project-img-placeholder advanced-p">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-badge adv">Advanced</span>
+                            <h3>AI Assistant Dashboard</h3>
+                            <p>Construct a dashboard connecting natural-language widgets with responsive sidebar control boards.</p>
+                            <div class="project-tech"><span>AI APIs</span> <span>JSON Parsing</span> <span>Dynamic Charts</span></div>
+                            <button class="btn btn-full btn-outline open-project-guide" data-project="aiassistant">View Guide</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Dashboard Section -->
+        <section id="dashboard" class="section-padding section-alt-bg">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <h2 class="section-title">Your Learning Dashboard</h2>
+                    <p class="section-subtitle">Track your streaks, view statistics, and generate verified educational certificates.</p>
+                </div>
+
+                <div class="dashboard-grid reveal-on-scroll">
+                    <!-- Left: User Profile & Streak stats -->
+                    <div class="dashboard-sidebar glass-card">
+                        <div class="user-avatar-block">
+                            <div class="user-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                            <h3 id="user-display-name">Skillora Learner</h3>
+                            <p class="user-email">guest.learner@skillora.edu</p>
+                        </div>
+
+                        <div class="streak-box">
+                            <div class="streak-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                            <div class="streak-data">
+                                <h4 id="dash-streak">1 Day</h4>
+                                <p>Learning Streak</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-bullets">
+                            <div class="stat-bullet">
+                                <span class="stat-val" id="dash-completed-courses">0</span>
+                                <span class="stat-desc">Courses Completed</span>
+                            </div>
+                            <div class="stat-bullet">
+                                <span class="stat-val" id="dash-points">0 XP</span>
+                                <span class="stat-desc">Score Earned</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Detailed Progress Charts & Certificates -->
+                    <div class="dashboard-main glass-card">
+                        <h3>Weekly Activity &amp; Course Status</h3>
+                        
+                        <div class="progress-charts-flex">
+                            <div class="chart-box">
+                                <h4>Learning Progression</h4>
+                                <div class="svg-chart-container">
+                                    <!-- Dynamic SVG Chart Grid and path -->
+                                    <svg viewBox="0 0 300 120" id="activity-chart">
+                                        <line x1="30" y1="10" x2="30" y2="100" stroke="rgba(255,255,255,0.1)" />
+                                        <line x1="30" y1="100" x2="280" y2="100" stroke="rgba(255,255,255,0.2)" />
+                                        
+                                        <!-- Graph Line (JS will animate or set points) -->
+                                        <path d="M 30 100 L 70 80 L 110 90 L 150 40 L 190 60 L 230 30 L 270 20" fill="none" stroke="url(#gradient-purple-cyan)" stroke-width="3" />
+                                        <circle cx="30" cy="100" r="4" fill="#7C3AED" />
+                                        <circle cx="70" cy="80" r="4" fill="#7C3AED" />
+                                        <circle cx="110" cy="90" r="4" fill="#7C3AED" />
+                                        <circle cx="150" cy="40" r="4" fill="#00D4FF" />
+                                        <circle cx="190" cy="60" r="4" fill="#00D4FF" />
+                                        <circle cx="230" cy="30" r="4" fill="#00D4FF" />
+                                        <circle cx="270" cy="20" r="4" fill="#00D4FF" />
+                                        
+                                        <defs>
+                                            <linearGradient id="gradient-purple-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#7C3AED" />
+                                                <stop offset="100%" stop-color="#00D4FF" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="chart-labels">
+                                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                                </div>
+                            </div>
+
+                            <div class="overall-progress-box">
+                                <h4>Platform Mastery</h4>
+                                <div class="circular-progress-flex">
+                                    <div class="circle-progress-item">
+                                        <svg class="progress-ring" width="80" height="80">
+                                            <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.1)" stroke-width="6" fill="transparent" r="32" cx="40" cy="40"/>
+                                            <circle class="progress-ring-circle" id="circle-prog-code" stroke="#7C3AED" stroke-dasharray="201.06" stroke-dashoffset="201.06" stroke-width="6" fill="transparent" r="32" cx="40" cy="40"/>
+                                        </svg>
+                                        <span class="percentage-lbl" id="percent-lbl-code">0%</span>
+                                        <span class="label">Coding</span>
+                                    </div>
+                                    
+                                    <div class="circle-progress-item">
+                                        <svg class="progress-ring" width="80" height="80">
+                                            <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.1)" stroke-width="6" fill="transparent" r="32" cx="40" cy="40"/>
+                                            <circle class="progress-ring-circle" id="circle-prog-english" stroke="#00D4FF" stroke-dasharray="201.06" stroke-dashoffset="201.06" stroke-width="6" fill="transparent" r="32" cx="40" cy="40"/>
+                                        </svg>
+                                        <span class="percentage-lbl" id="percent-lbl-english">0%</span>
+                                        <span class="label">English</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Credentials / Certificates generation block -->
+                        <div class="certificates-section mt-4">
+                            <h4>Earned Credentials</h4>
+                            <div class="certificates-flex">
+                                <div class="cert-card-dashboard">
+                                    <i class="fa-solid fa-award cert-icon"></i>
+                                    <div>
+                                        <h5>Programming Foundations</h5>
+                                        <p id="cert-code-status">Incomplete (Complete 3 coding tasks)</p>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary claim-cert-btn" id="claim-cert-code" disabled>Claim</button>
+                                </div>
+                                <div class="cert-card-dashboard mt-2">
+                                    <i class="fa-solid fa-award cert-icon"></i>
+                                    <div>
+                                        <h5>English Fluency Certificate</h5>
+                                        <p id="cert-english-status">Incomplete (Complete all quizzes)</p>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary claim-cert-btn" id="claim-cert-english" disabled>Claim</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal-on-scroll">
+                    <h2 class="section-title">Skillora Community</h2>
+                    <p class="section-subtitle">Showcase your coding projects, ask logic questions, and see student testimonials.</p>
+                </div>
+
+                <div class="community-grid reveal-on-scroll">
+                    <!-- Showcase & Forum -->
+                    <div class="glass-card community-forum">
+                        <h3>Community Showcase &amp; Forum</h3>
+                        
+                        <form id="forum-post-form" class="forum-form">
+                            <input type="text" id="forum-author" placeholder="Your Name" required>
+                            <select id="forum-category" required>
+                                <option value="showcase">Project Showcase</option>
+                                <option value="question">Question</option>
+                                <option value="discussion">General Chat</option>
+                            </select>
+                            <textarea id="forum-message" placeholder="Share your code snippet or ask your communication question..." required></textarea>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit Post</button>
+                        </form>
+
+                        <div class="forum-feed" id="forum-feed-container">
+                            <!-- Preloaded Community posts -->
+                            <div class="forum-post">
+                                <div class="post-header">
+                                    <span class="author"><i class="fa-solid fa-user-circle"></i> Alex Carter</span>
+                                    <span class="post-tag tag-showcase">Showcase</span>
+                                </div>
+                                <p class="post-text">Just finished writing the reverse string function in the playground. Felt awesome using simple recursion!</p>
+                                <div class="post-footer"><span><i class="fa-regular fa-heart"></i> 12</span> <span><i class="fa-regular fa-comment"></i> 2</span></div>
+                            </div>
+
+                            <div class="forum-post">
+                                <div class="post-header">
+                                    <span class="author"><i class="fa-solid fa-user-circle"></i> Maya Lin</span>
+                                    <span class="post-tag tag-question">Question</span>
+                                </div>
+                                <p class="post-text">Is there a major difference in saying "I look forward to meeting you" vs "I look forward to meet you"? Confused on gerund rules.</p>
+                                <div class="post-footer"><span><i class="fa-regular fa-heart"></i> 8</span> <span><i class="fa-regular fa-comment"></i> 4</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonials Carousel -->
+                    <div class="glass-card community-testimonials">
+                        <h3>Learner Reviews</h3>
+                        <div class="carousel-container">
+                            <div class="testimonial-card active">
+                                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <p class="testimonial-text">"Skillora bridged a huge gap for me. I wanted to learn code, but I also needed to talk to clients. The parallel structure is genius."</p>
+                                <div class="reviewer-info">
+                                    <h5>David K.</h5>
+                                    <p>Junior Developer, Canada</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding section-alt-bg">
+            <div class="container about-grid">
+                <div class="about-content reveal-on-scroll">
+                    <h2 class="section-title">About Skillora</h2>
+                    <p class="mission-text">
+                        "Skillora helps learners master programming and English communication skills through practical learning, interactive exercises, and project-based education."
+                    </p>
+                    <p>
+                        We believe that being a great engineer is only half the battle. To truly succeed, you must be able to express your designs, collaborate on issues, and pass technical interviews. Skillora provides a unified environment where code writing is supported by linguistic exercises.
+                    </p>
+                </div>
+                
+                <div class="about-cards-col reveal-on-scroll delay-100">
+                    <div class="about-value-card glass-card">
+                        <i class="fa-solid fa-laptop-code text-cyan"></i>
+                        <div>
+                            <h4>Hands-on Editors</h4>
+                            <p>No downloads required. Write, inspect, and execute code instantly.</p>
+                        </div>
+                    </div>
+                    <div class="about-value-card glass-card">
+                        <i class="fa-solid fa-bullhorn text-purple"></i>
+                        <div>
+                            <h4>Professional English</h4>
+                            <p>Vocabulary and grammar modules calibrated for technical interviews.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding">
+            <div class="container contact-grid">
+                <div class="contact-form-block glass-card reveal-on-scroll">
+                    <h3>Get in Touch</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-block reveal-on-scroll delay-100">
+                    <h3>Contact Information</h3>
+                    <p class="contact-sub">Have questions or want to partner with Skillora? Reach out directly.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h5>Email Us</h5>
+                                <p>support@skillora.edu</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <div>
+                                <h5>Office</h5>
+                                <p>100 Innovation Way, Suite 400, Tech City</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mock Map Integration (Google Maps styling) -->
+                    <div class="mock-map glass-card">
+                        <div class="map-overlay">
+                            <i class="fa-solid fa-map-pin"></i>
+                            <p>Skillora Campus - View Map</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="brand-logo">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span>Skillora</span>
+                </a>
+                <p>Code Better. Speak Better. Grow Better. Elevate your technical proficiency and verbal confidence in one unified educational workspace.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#playground">Playground</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Popular Courses</h4>
+                <ul>
+                    <li><a href="#programming">HTML &amp; CSS</a></li>
+                    <li><a href="#programming">JavaScript</a></li>
+                    <li><a href="#programming">Python</a></li>
+                    <li><a href="#english">Interview English</a></li>
+                    <li><a href="#english">Grammar Guides</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to our weekly articles, coding puzzles, and speaking challenges.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="news-email" placeholder="Your Email" required aria-label="Newsletter Email">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Skillora. All rights reserved. Created for learners worldwide.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- AI Learning Assistant Chat Widget -->
+    <div id="ai-chat-widget" class="ai-chat-widget">
+        <button id="ai-chat-bubble" class="ai-chat-bubble" aria-label="Open AI Assistant">
+            <i class="fa-solid fa-robot"></i>
+            <span class="chat-pulse"></span>
+        </button>
+        <div id="ai-chat-container" class="ai-chat-container glass-card">
+            <div class="chat-header">
+                <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <h4>Skillora AI Coach</h4>
+                    <span>Online &bull; Ready to help</span>
+                </div>
+                <button id="close-chat-btn" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chat-messages" id="chat-messages-box">
+                <div class="chat-msg bot">
+                    <p>Hello! I am your Skillora AI Coach. Ask me any question about programming syntax (HTML, JS, Python) or English communication!</p>
+                </div>
+            </div>
+            <div class="chat-suggestions">
+                <button class="chat-sugg-btn">Explain closures in JS</button>
+                <button class="chat-sugg-btn">Active vs Passive voice</button>
+            </div>
+            <form id="chat-input-form" class="chat-input-form">
+                <input type="text" id="chat-user-message" placeholder="Ask a question..." required>
+                <button type="submit" class="icon-btn-glow"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Auth Modal (Login/Signup) -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content glass-card auth-modal-content">
+            <button class="close-modal-btn icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" id="tab-login">Login</button>
+                <button class="auth-tab-btn" id="tab-signup">Sign Up</button>
+            </div>
+            
+            <form id="auth-form-login" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+
+            <form id="auth-form-signup" class="auth-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Course Lesson Tutorial Viewer Modal -->
+    <div id="tutorial-modal" class="modal-overlay">
+        <div class="modal-content glass-card tutorial-modal-content">
+            <div class="modal-header-bar">
+                <h3 id="tut-title">HTML Introduction</h3>
+                <button class="close-modal-btn icon-btn" id="close-tut-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body-scroll" id="tut-content">
+                <!-- Loaded dynamically by JS -->
+            </div>
+            <div class="modal-footer-bar">
+                <button class="btn btn-outline" id="tut-prev-btn">Previous</button>
+                <button class="btn btn-primary" id="tut-next-btn">Next Lesson</button>
+                <button class="btn btn-primary" id="tut-try-btn">Try in Playground</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- English Study Viewer Modal -->
+    <div id="english-modal" class="modal-overlay">
+        <div class="modal-content glass-card tutorial-modal-content">
+            <div class="modal-header-bar">
+                <h3 id="eng-title">Grammar Study</h3>
+                <button class="close-modal-btn icon-btn" id="close-eng-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body-scroll" id="eng-content">
+                <!-- Loaded dynamically by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Quiz Modal -->
+    <div id="quiz-modal" class="modal-overlay">
+        <div class="modal-content glass-card quiz-modal-content">
+            <div class="modal-header-bar">
+                <h3 id="quiz-title">Skillora Grammar Assessment</h3>
+                <button class="close-modal-btn icon-btn" id="close-quiz-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="quiz-question-container">
+                <span class="quiz-progress-lbl" id="quiz-q-progress">Question 1 of 5</span>
+                <p class="quiz-question-text" id="quiz-q-text">Which of the following is correct?</p>
+                <div class="quiz-options-list" id="quiz-options-box">
+                    <!-- Option buttons populated by JS -->
+                </div>
+            </div>
+            <div class="quiz-feedback-box hidden" id="quiz-feedback">
+                <p id="quiz-feedback-text"></p>
+                <button class="btn btn-primary btn-sm" id="quiz-next-q-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Generator Modal -->
+    <div id="cert-modal" class="modal-overlay">
+        <div class="modal-content glass-card cert-modal-content">
+            <button class="close-modal-btn icon-btn" id="close-cert-btn"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="certificate-print-area" id="certificate-print-area">
+                <div class="cert-outer-border">
+                    <div class="cert-inner-border">
+                        <div class="cert-badge-watermark"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h1 class="cert-platform">SKILLORA</h1>
+                        <p class="cert-subtext">CERTIFICATE OF ACHIEVEMENT</p>
+                        
+                        <p class="cert-presents">This is proudly presented to</p>
+                        <h2 class="cert-recipient-name" id="cert-recipient-name">John Doe</h2>
+                        
+                        <p class="cert-reason" id="cert-reason">for successfully demonstrating mastery in Programming Foundations through practical code execution challenges and assessment examinations.</p>
+                        
+                        <div class="cert-metadata-row">
+                            <div class="cert-meta-col">
+                                <span class="cert-meta-label">Date Issued</span>
+                                <span class="cert-meta-val" id="cert-date">June 17, 2026</span>
+                            </div>
+                            <div class="cert-meta-col">
+                                <div class="cert-qr-mock">
+                                    <i class="fa-solid fa-qrcode"></i>
+                                </div>
+                                <span class="cert-meta-val" style="font-size: 0.7rem; font-family: monospace;" id="cert-id">SK-88921-CODE</span>
+                            </div>
+                            <div class="cert-meta-col">
+                                <span class="cert-meta-label">Verified Instructor</span>
+                                <span class="cert-signature">Skillora Board</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cert-actions">
+                <button class="btn btn-primary" id="print-cert-btn"><i class="fa-solid fa-print"></i> Print Certificate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Custom Script -->
+</body>
+</html>
