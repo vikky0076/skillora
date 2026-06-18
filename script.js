@@ -398,7 +398,7 @@ const PROJECT_GUIDES = {
 // --------------------------------------------------------------------------
 
 let state = {
-    theme: 'dark',
+    theme: 'light',
     userName: 'Skillora Learner',
     streak: 1,
     points: 0,
@@ -547,20 +547,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initTheme() {
     const html = document.documentElement;
-    const themeBtn = document.getElementById('theme-toggle');
     
-    // Set initial theme
-    html.setAttribute('data-theme', state.theme);
-    updateThemeBtnIcon();
+    // Force light theme always
+    state.theme = 'light';
+    html.setAttribute('data-theme', 'light');
+    saveState();
 
+    const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            state.theme = state.theme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', state.theme);
-            updateThemeBtnIcon();
-            saveState();
-            showToast(`Theme switched to ${state.theme} mode`, 'info');
-        });
+        themeBtn.style.display = 'none';
     }
 }
 
@@ -597,14 +592,30 @@ function initIntroOverlay() {
             setTimeout(() => {
                 step2.classList.add('active');
                 introStep = 2;
-                transitioning = false;
+                // Wait 1.5 seconds after showing step 2 to allow the user to read the developer credit text.
+                // This prevents fast/inertia scrolling from immediately skipping it.
+                setTimeout(() => {
+                    transitioning = false;
+                }, 1500);
             }, 600);
         } else if (introStep === 2) {
             step2.classList.remove('active');
             overlay.classList.add('fade-out');
             setTimeout(() => {
-                overlay.remove();
                 document.body.style.overflow = ''; // Restore browser scrolling
+                
+                // Reset scroll to 0,0 and temporarily lock scroll momentum to avoid automatic scroll down
+                window.scrollTo(0, 0);
+                const lockScroll = () => {
+                    if (window.scrollY > 0) {
+                        window.scrollTo(0, 0);
+                    }
+                };
+                window.addEventListener('scroll', lockScroll);
+                setTimeout(() => {
+                    window.removeEventListener('scroll', lockScroll);
+                }, 300); // absorb momentum for 300ms
+                
                 transitioning = false;
                 showToast("Welcome to Skillora!", "success");
             }, 800);
@@ -634,13 +645,50 @@ function initIntroOverlay() {
 
     // Keyboard controls (Space, Enter, Down Arrow)
     window.addEventListener('keydown', (e) => {
-        if (overlay.parentNode) {
+        if (overlay && !overlay.classList.contains('fade-out')) {
             if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowDown') {
                 e.preventDefault();
                 nextStep();
             }
         }
     });
+
+    // Detect scrolling up at the top of the page to show welcome screen again
+    window.addEventListener('wheel', (e) => {
+        if (overlay.classList.contains('fade-out') && window.scrollY === 0 && e.deltaY < 0) {
+            showWelcomeScreen();
+        }
+    });
+
+    // For touch devices (swipe down at the top of the page)
+    let winTouchStartY = 0;
+    window.addEventListener('touchstart', (e) => {
+        winTouchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+        const winTouchEndY = e.changedTouches[0].clientY;
+        if (overlay.classList.contains('fade-out') && window.scrollY === 0 && winTouchEndY - winTouchStartY > 50) {
+            showWelcomeScreen();
+        }
+    }, { passive: true });
+
+    function showWelcomeScreen() {
+        if (transitioning) return;
+        transitioning = true;
+        
+        // Reset steps
+        introStep = 1;
+        step2.classList.remove('active');
+        step1.classList.add('active');
+        overlay.classList.remove('fade-out');
+        document.body.style.overflow = 'hidden';
+        
+        // Brief timeout before allowing scrolling to step 2
+        setTimeout(() => {
+            transitioning = false;
+        }, 800);
+    }
 }
 
 // --------------------------------------------------------------------------
