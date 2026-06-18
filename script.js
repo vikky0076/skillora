@@ -653,42 +653,7 @@ function initIntroOverlay() {
         }
     });
 
-    // Detect scrolling up at the top of the page to show welcome screen again
-    window.addEventListener('wheel', (e) => {
-        if (overlay.classList.contains('fade-out') && window.scrollY === 0 && e.deltaY < 0) {
-            showWelcomeScreen();
-        }
-    });
 
-    // For touch devices (swipe down at the top of the page)
-    let winTouchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-        winTouchStartY = e.touches[0].clientY;
-    }, { passive: true });
-
-    window.addEventListener('touchend', (e) => {
-        const winTouchEndY = e.changedTouches[0].clientY;
-        if (overlay.classList.contains('fade-out') && window.scrollY === 0 && winTouchEndY - winTouchStartY > 50) {
-            showWelcomeScreen();
-        }
-    }, { passive: true });
-
-    function showWelcomeScreen() {
-        if (transitioning) return;
-        transitioning = true;
-        
-        // Reset steps
-        introStep = 1;
-        step2.classList.remove('active');
-        step1.classList.add('active');
-        overlay.classList.remove('fade-out');
-        document.body.style.overflow = 'hidden';
-        
-        // Brief timeout before allowing scrolling to step 2
-        setTimeout(() => {
-            transitioning = false;
-        }, 800);
-    }
 }
 
 // --------------------------------------------------------------------------
@@ -1645,7 +1610,7 @@ function initAIChatbot() {
     });
 
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const text = inputBox.value.trim();
             if (!text) return;
@@ -1654,30 +1619,70 @@ function initAIChatbot() {
             appendMessage(text, 'user');
             inputBox.value = '';
 
-            // Generate responses based on parsing keywords
             const query = text.toLowerCase();
-            let response = "I'm still studying technical expressions! Try asking me about 'closures in JS', 'variables', 'conditional tenses', or 'job interview frameworks' and I will gladly explain.";
 
-            if (query.includes('closure')) {
-                response = `A <strong>closure</strong> is the combination of a function bundled together with references to its surrounding state (the lexical environment). In JS, closures are created every time a function is created, at function creation time.\n\n<code>function outer() {\n  let code = "JS";\n  return function() { console.log(code); };\n}</code>`;
-            } else if (query.includes('variable')) {
-                response = `A <strong>variable</strong> is a container for storing data values. In JavaScript, we declare variables using: \n- <code>let</code> (block-scoped, mutable)\n- <code>const</code> (block-scoped, immutable)\n- <code>var</code> (function-scoped, legacy)\n\nIn Python, you declare variables directly without keywords: <code>x = 5</code>.`;
-            } else if (query.includes('tense') || query.includes('passive') || query.includes('conditional')) {
-                response = `English conditionals express that one action depends on another. \n- <strong>Zero Conditional:</strong> Facts (If you heat ice, it melts).\n- <strong>First Conditional:</strong> Future possibility (If it rains, we will stay inside).\n- <strong>Second Conditional:</strong> Imaginary/unlikely (If I won the lottery, I would buy a yacht).`;
-            } else if (query.includes('interview') || query.includes('star')) {
-                response = `To excel in coding interviews, communicate your logic using the <strong>STAR Framework</strong>:\n- <strong>S</strong>ituation: Briefly define the issue.\n- <strong>T</strong>ask: State your objective.\n- <strong>A</strong>ction: Detail your steps/design.\n- <strong>R</strong>esult: Show data or outcomes.`;
-            } else if (query.includes('html') || query.includes('tag')) {
-                response = `HTML tags define structural layouts. Elements typically contain an opening tag <code>&lt;p&gt;</code>, contents, and a closing tag <code>&lt;/p&gt;</code>. Let me know if you'd like a specific guide on tables or lists!`;
-            } else if (query.includes('hello') || query.includes('hi')) {
-                response = `Hello! How can I support your programming or english study session today?`;
-            } else if (query.includes('css')) {
-                response = `CSS (Cascading Style Sheets) manages visual styling. Use selector blocks to apply styles:\n\n<code>.box {\n  background: var(--color-primary);\n  border-radius: 12px;\n}</code>`;
+            // 1. Direct Intercept for Developer Credential Questions
+            if (query.includes('develop') || query.includes('create') || query.includes('build') || 
+                query.includes('maker') || query.includes('creator') || query.includes('owner') || 
+                query.includes('who are you') || query.includes('who made you')) {
+                
+                const response = "I was created and developed by Vignesh B.Sc,.Cs(AI&ML) as the official AI Learning Coach for the Skillora educational platform.";
+                setTimeout(() => {
+                    appendMessage(response, 'bot');
+                }, 800);
+                return;
             }
 
-            // Simulate typing delay
-            setTimeout(() => {
+            // Show a visual typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'chat-msg bot typing-indicator-msg';
+            typingIndicator.innerHTML = '<div class="typing-dots"><span>.</span><span>.</span><span>.</span></div>';
+            msgsBox.appendChild(typingIndicator);
+            msgsBox.scrollTop = msgsBox.scrollHeight;
+
+            try {
+                // 2. Call the Puter.js free AI chat model
+                const systemPrompt = `You are the Skillora AI Coach, a friendly, encouraging learning assistant for the Skillora educational platform. 
+Skillora is a platform for learning programming (HTML, CSS, JS, Python, Java, SQL, React, Node, C, C++) and English communication.
+IMPORTANT: If the user asks who developed you, who created you, who built you, or asks about your creator/developer, you MUST respond exactly that you were created and developed by Vignesh B.Sc,.Cs(AI&ML). Keep this answer professional and polite.
+Keep your technical explanations clear, concise, and educational. Use HTML tags like <strong> or <code> or list tags to structure your responses nicely.`;
+
+                const messages = [
+                    { role: "system", content: systemPrompt },
+                    { role: "user", content: text }
+                ];
+
+                // Call Puter AI Chat
+                const response = await puter.ai.chat(messages, { model: 'gpt-4o-mini' });
+                
+                // Remove typing indicator and append message
+                typingIndicator.remove();
                 appendMessage(response, 'bot');
-            }, 800);
+            } catch (error) {
+                console.error("Puter AI Chat failed, falling back to keywords:", error);
+                typingIndicator.remove();
+
+                // Fallback to static rule-based responses if API fails/offline
+                let response = "I'm still studying technical expressions! Try asking me about 'closures in JS', 'variables', 'conditional tenses', or 'job interview frameworks' and I will gladly explain.";
+
+                if (query.includes('closure')) {
+                    response = `A <strong>closure</strong> is the combination of a function bundled together with references to its surrounding state (the lexical environment). In JS, closures are created every time a function is created, at function creation time.\n\n<code>function outer() {\n  let code = "JS";\n  return function() { console.log(code); };\n}</code>`;
+                } else if (query.includes('variable')) {
+                    response = `A <strong>variable</strong> is a container for storing data values. In JavaScript, we declare variables using: \n- <code>let</code> (block-scoped, mutable)\n- <code>const</code> (block-scoped, immutable)\n- <code>var</code> (function-scoped, legacy)\n\nIn Python, you declare variables directly without keywords: <code>x = 5</code>.`;
+                } else if (query.includes('tense') || query.includes('passive') || query.includes('conditional')) {
+                    response = `English conditionals express that one action depends on another. \n- <strong>Zero Conditional:</strong> Facts (If you heat ice, it melts).\n- <strong>First Conditional:</strong> Future possibility (If it rains, we will stay inside).\n- <strong>Second Conditional:</strong> Imaginary/unlikely (If I won the lottery, I would buy a yacht).`;
+                } else if (query.includes('interview') || query.includes('star')) {
+                    response = `To excel in coding interviews, communicate your logic using the <strong>STAR Framework</strong>:\n- <strong>S</strong>ituation: Briefly define the issue.\n- <strong>T</strong>ask: State your objective.\n- <strong>A</strong>ction: Detail your steps/design.\n- <strong>R</strong>esult: Show data or outcomes.`;
+                } else if (query.includes('html') || query.includes('tag')) {
+                    response = `HTML tags define structural layouts. Elements typically contain an opening tag <code>&lt;p&gt;</code>, contents, and a closing tag <code>&lt;/p&gt;</code>. Let me know if you'd like a specific guide on tables or lists!`;
+                } else if (query.includes('hello') || query.includes('hi')) {
+                    response = `Hello! How can I support your programming or english study session today?`;
+                } else if (query.includes('css')) {
+                    response = `CSS (Cascading Style Sheets) manages visual styling. Use selector blocks to apply styles:\n\n<code>.box {\n  background: var(--color-primary);\n  border-radius: 12px;\n}</code>`;
+                }
+
+                appendMessage(response, 'bot');
+            }
         });
     }
 

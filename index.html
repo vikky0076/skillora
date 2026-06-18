@@ -23,6 +23,9 @@
     <!-- Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Puter.js API for Advanced AI -->
+    <script src="https://js.puter.com/v2/"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -33,7 +36,7 @@
         <!-- Step 1: Branding & Quote -->
         <div id="intro-step-1" class="intro-step active">
             <div class="intro-content">
-                <div class="intro-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="intro-logo"><img src="logo.png" alt="Skillora Logo" class="intro-logo-img"></div>
                 <div class="intro-welcome">Welcome to</div>
                 <h1 class="intro-title-text">Skillora</h1>
                 <p class="intro-sub">Educational Platform</p>
@@ -79,8 +82,8 @@
     <header id="header-nav">
         <nav class="navbar container">
             <a href="#" class="brand-logo" id="brand-logo">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                <div class="logo-icon-img">
+                    <img src="logo.png" alt="Skillora Logo" class="nav-logo-img">
                 </div>
                 <span>Skillora</span>
             </a>
@@ -90,10 +93,11 @@
                 <li><a href="#programming" class="nav-link" data-section="programming">Programming</a></li>
                 <li><a href="#english" class="nav-link" data-section="english">English</a></li>
                 <li><a href="#playground" class="nav-link" data-section="playground">Playground</a></li>
-                <li><a href="#challenges" class="nav-link" data-section="challenges">Practice</a></li>
                 <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
                 <li><a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a></li>
                 <li><a href="#community" class="nav-link" data-section="community">Community</a></li>
+                <li class="mobile-only-nav-item"><button class="btn btn-outline show-login-modal" style="width: 100%; margin-top: 1.5rem;">Login</button></li>
+                <li class="mobile-only-nav-item"><button class="btn btn-primary show-signup-modal" style="width: 100%; margin-top: 0.5rem;">Sign Up</button></li>
             </ul>
 
             <div class="nav-actions">
@@ -132,7 +136,9 @@
                         <i class="fa-solid fa-sparkles"></i> Code Better. Speak Better. Grow Better.
                     </div>
                     <h1 class="hero-title">
-                        <span id="typed-text">Master Programming</span><br>
+                        <div class="typing-wrapper">
+                            <span id="typed-text">Master Programming</span>
+                        </div>
                         <span class="gradient-text">&amp; Speak Confidently</span>
                     </h1>
                     <p class="hero-subtitle">
@@ -150,35 +156,12 @@
                 </div>
 
                 <div class="hero-visual reveal-on-scroll delay-100">
-                    <div class="glass-hero-card">
-                        <div class="card-header-bar">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="card-tab-title">skillora_lesson.py</span>
+                    <div class="hero-quote-card glass-card">
+                        <div class="quote-icon-container">
+                            <i class="fa-solid fa-quote-left"></i>
                         </div>
-                        <div class="card-code-body">
-                            <pre><code><span class="keyword">def</span> <span class="func">learn_and_grow</span>(student):
-    skills = []
-    skills.append(<span class="str">"Coding: JavaScript &amp; Python"</span>)
-    skills.append(<span class="str">"English: Interview Prep"</span>)
-    
-    <span class="keyword">for</span> skill <span class="keyword">in</span> skills:
-        student.practice(skill)
-        student.confidence += <span class="num">10</span>
-        
-    <span class="keyword">return</span> student.ready_for_career()</code></pre>
-                        </div>
-                    </div>
-                    <!-- Floating Tech Badges -->
-                    <div class="floating-badge badge-1 float-anim">
-                        <i class="fa-brands fa-python text-yellow"></i> <span>Python</span>
-                    </div>
-                    <div class="floating-badge badge-2 float-anim-reverse">
-                        <i class="fa-brands fa-js text-yellow"></i> <span>JS</span>
-                    </div>
-                    <div class="floating-badge badge-3 float-anim">
-                        <i class="fa-solid fa-comments text-purple"></i> <span>English</span>
+                        <p class="hero-quote-content">"Learning is the only thing the mind never exhausts, never fears, and never regrets."</p>
+                        <div class="hero-quote-by">— Leonardo da Vinci</div>
                     </div>
                 </div>
             </div>
@@ -554,71 +537,7 @@ function toggleColor() {
             </div>
         </section>
 
-        <!-- Practice & Challenges Section -->
-        <section id="challenges" class="section-padding section-alt-bg">
-            <div class="container">
-                <div class="section-header reveal-on-scroll">
-                    <h2 class="section-title">Practice Challenges</h2>
-                    <p class="section-subtitle">Test your coding skills and English communication logic with automated quizzes.</p>
-                </div>
 
-                <div class="challenges-wrapper reveal-on-scroll">
-                    <!-- Mode Selector Tabs -->
-                    <div class="challenges-tabs">
-                        <button class="challenge-tab active" data-target="code-challenges">Coding Challenges</button>
-                        <button class="challenge-tab" data-target="english-challenges">English Quizzes</button>
-                    </div>
-
-                    <!-- Coding Challenges container -->
-                    <div id="code-challenges" class="challenge-pane active">
-                        <div class="challenges-grid">
-                            <div class="challenge-card glass-card">
-                                <span class="difficulty easy">Beginner</span>
-                                <h4>Reverse a String</h4>
-                                <p>Write a JS function that takes a string and returns it backwards.</p>
-                                <button class="btn btn-sm btn-primary launch-challenge-btn" data-challenge="rev-string">Solve Challenge</button>
-                            </div>
-                            <div class="challenge-card glass-card">
-                                <span class="difficulty medium">Intermediate</span>
-                                <h4>Find Duplicate Items</h4>
-                                <p>Return an array containing only the non-unique values from a list.</p>
-                                <button class="btn btn-sm btn-primary launch-challenge-btn" data-challenge="find-dups">Solve Challenge</button>
-                            </div>
-                            <div class="challenge-card glass-card">
-                                <span class="difficulty hard">Advanced</span>
-                                <h4>API Retry Mechanism</h4>
-                                <p>Construct a function that retries a promise-based request N times.</p>
-                                <button class="btn btn-sm btn-primary launch-challenge-btn" data-challenge="api-retry">Solve Challenge</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- English Quizzes container -->
-                    <div id="english-challenges" class="challenge-pane">
-                        <div class="challenges-grid">
-                            <div class="challenge-card glass-card">
-                                <span class="difficulty easy">Grammar Quiz</span>
-                                <h4>Tenses &amp; Verb Forms</h4>
-                                <p>Check your understanding of present perfect, past, and conditional clauses.</p>
-                                <button class="btn btn-sm btn-primary start-quiz-btn" data-quiz="grammar">Start Quiz</button>
-                            </div>
-                            <div class="challenge-card glass-card">
-                                <span class="difficulty medium">Vocabulary Quiz</span>
-                                <h4>Synonyms &amp; Idioms</h4>
-                                <p>Select appropriate vocabularies to complete expressions and sentences.</p>
-                                <button class="btn btn-sm btn-primary start-quiz-btn" data-quiz="vocabulary">Start Quiz</button>
-                            </div>
-                            <div class="challenge-card glass-card">
-                                <span class="difficulty hard">Job Interview Speech</span>
-                                <h4>Professional Speaking</h4>
-                                <p>Assess grammar models suited for answering key behavioral interviews.</p>
-                                <button class="btn btn-sm btn-primary start-quiz-btn" data-quiz="interview">Start Quiz</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Project-Based Learning Section -->
         <section id="projects" class="section-padding">
